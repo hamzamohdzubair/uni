@@ -2,6 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "osc99": true,
   "version": 2,
+  "final_space": true,
   "blocks": [
     {
       "alignment": "left",
@@ -119,10 +120,11 @@
           ],
           "foreground": "#262626",
           "invert_powerline": true,
-          "leading_diamond": "",
           "style": "diamond",
           "template": " {{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }}{{ .Error }} <#262626></>",
-          "type": "battery",
+          "type": "battery",  
+          "leading_diamond" = ""
+          "trailing_diamond" = ""
           "properties": {
             "charged_icon": " ",
             "charging_icon": " ",
@@ -173,7 +175,7 @@
         {
           "background": "#c386f1",
           "foreground": "#ffffff",
-          "powerline_symbol": " ",
+          "powerline_symbol": "",
           "leading_diamond": "",
           "style": "powerline",
           "template": "{{ .CurrentDate | date .Format }}",
