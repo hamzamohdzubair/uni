@@ -1,0 +1,204 @@
+"$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
+osc99 = true
+version = 2
+
+[[blocks]]
+alignment = "left"
+type = "prompt"
+
+#   [[blocks.segments]]
+#   background = "#0077c2"
+#   foreground = "#ffffff"
+#   leading_diamond = ""
+#   style = "diamond"
+#   template = "{{ .Name }} "
+#   type = "shell"
+
+  [[blocks.segments]]
+  background = "#ef5350"
+  foreground = "#FFFB38"
+  style = "diamond"
+  template = "<parentBackground></>  "
+  type = "root"
+
+  [[blocks.segments]]
+  background = "#FF9248"
+  foreground = "#2d3436"
+  # powerline_symbol = ""
+  leading_diamond = ""
+  trailing_diamond = ""
+  style = "diamond"
+  template = "{{ .Path }} "
+  type = "path"
+
+    [blocks.segments.properties]
+    folder_icon = ""
+    home_icon = ""
+    style = "full"
+
+  [[blocks.segments]]
+  background = "#FFFB38"
+  background_templates = [
+  "{{ if or (.Working.Changed) (.Staging.Changed) }}#ffeb95{{ end }}",
+  "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#c5e478{{ end }}",
+  "{{ if gt .Ahead 0 }}#C792EA{{ end }}",
+  "{{ if gt .Behind 0 }}#C792EA{{ end }}"
+]
+  foreground = "#011627"
+  powerline_symbol = ""
+  style = "powerline"
+  template = " {{ .UpstreamIcon }}{{ .HEAD }}{{ .BranchStatus }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}<#ef5350>  {{ .Staging.String }}</>{{ end }} "
+  type = "git"
+
+    [blocks.segments.properties]
+    branch_icon = " "
+    fetch_status = true
+    fetch_upstream_icon = true
+
+  [[blocks.segments]]
+  background = "#83769c"
+  foreground = "#ffffff"
+  style = "powerline"
+  powerline_symbol = ""
+  # leading_diamond = ""
+  # trailing_diamond = ""
+  template = " 羽{{ .FormattedMs }}"
+  type = "executiontime"
+
+    [blocks.segments.properties]
+    style = "roundrock"
+    threshold = 0
+
+[[blocks]]
+alignment = "right"
+type = "prompt"
+
+  [[blocks.segments]]
+  background = "#303030"
+  foreground = "#3C873A"
+  leading_diamond = ""
+  style = "diamond"
+  template = " {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}"
+  trailing_diamond = " "
+  type = "node"
+
+    [blocks.segments.properties]
+    fetch_package_manager = true
+    npm_icon = " <#cc3a3a></> "
+    yarn_icon = " <#348cba></>"
+
+  [[blocks.segments]]
+  background = "#306998"
+  foreground = "#FFE873"
+  leading_diamond = ""
+  style = "diamond"
+  template = " {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }}"
+  trailing_diamond = " "
+  type = "python"
+
+  [[blocks.segments]]
+  background = "#f3f0ec"
+  foreground = "#925837"
+  leading_diamond = ""
+  style = "diamond"
+  template = " {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}"
+  trailing_diamond = " "
+  type = "rust"
+
+  [[blocks.segments]]
+  background = "#b2bec3"
+  foreground = "#222222"
+  leading_diamond = ""
+  style = "diamond"
+  template = " {{ if .WSL }}WSL at {{ end }}{{.Icon}}<#262626> </>"
+  type = "os"
+
+    [blocks.segments.properties]
+    linux = ""
+    macos = ""
+    windows = ""
+
+  [[blocks.segments]]
+  background = "#f36943"
+  background_templates = [
+  "{{if eq \"Charging\" .State.String}}#b8e994{{end}}",
+  "{{if eq \"Discharging\" .State.String}}#fff34e{{end}}",
+  "{{if eq \"Full\" .State.String}}#33DD2D{{end}}"
+]
+  foreground = "#262626"
+  invert_powerline = true
+  leading_diamond = ""
+  style = "diamond"
+  template = " {{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }}{{ .Error }} <#262626></>"
+  type = "battery"
+
+    [blocks.segments.properties]
+    charged_icon = " "
+    charging_icon = " "
+    discharging_icon = " "
+
+  [[blocks.segments]]
+  background = "#40c4ff"
+  foreground = "#ffffff"
+  invert_powerline = true
+  leading_diamond = ""
+  style = "diamond"
+  template = "  {{ .CurrentDate | date .Format }} "
+  trailing_diamond = ""
+  type = "time"
+
+    [blocks.segments.properties]
+    time_format = "Mon _2 Jan"
+
+[[blocks]]
+alignment = "left"
+newline = true
+type = "prompt"
+
+  # [[blocks.segments]]
+  # foreground = "#21c7c7"
+  # style = "plain"
+  # template = "╰─"
+  # type = "text"
+
+  [[blocks.segments]]
+  type = "session"
+  style = "diamond"
+  foreground = "#ffffff"
+  # background = "#FF9248"
+  background = "#c386f1"
+  leading_diamond = ""
+  # trailing_diamond = ""
+  template = "{{ if .SSHSession }} {{ end }}{{ .UserName }}"
+
+  [[blocks.segments]]
+  background = "#40c4ff"
+  # background = "#FF9248"
+  foreground = "#e0f8ff"
+  foreground_templates = [ "{{ if gt .Code 0 }}#ef5350{{ end }}" ]
+  style = "powerline" 
+  # template = " "
+  powerline_symbol = ""
+  # template = " "
+  type = "exit"
+
+    [blocks.segments.properties]
+    always_enabled = true
+
+  [[blocks.segments]]
+  # background = "#40c4ff"
+  background = "#c386f1"
+  foreground = "#ffffff"
+  # invert_powerline = true
+  powerline_symbol = " "
+  leading_diamond = ""
+  # leading_diamond = ""
+  style = "powerline"
+  template = "{{ .CurrentDate | date .Format }}"
+  trailing_diamond = ""
+  type = "time"
+
+    [blocks.segments.properties]
+    time_format = "1504"
+
+
