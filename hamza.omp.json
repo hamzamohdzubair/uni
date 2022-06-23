@@ -133,7 +133,7 @@
           "foreground": "#ffffff",
           "background": "#007acc",
           "properties": {
-              "url": "https://wakatime.com/api/v1/users/current/summaries?start=today&end=today&api_key=9e410d09-10e9-49d1-9f16-de35b13ebe8b",
+              "url": "https://wakatime.com/api/v1/users/current/summaries?start=today&end=today&api_key=API_KEY",
               "cache_timeout": 20,
               "http_timeout": 5000
           }
