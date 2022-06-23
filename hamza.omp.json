@@ -124,21 +124,6 @@
           }
         },
         {
-          "type": "wakatime",
-          "style": "diamond",
-          "leading_diamond":  "",
-          "trailing_diamond": "",
-          "invert_powerline": true,
-          "powerline_symbol": "\uE0B0",
-          "foreground": "#ffffff",
-          "background": "#007acc",
-          "properties": {
-              "url": "https://wakatime.com/api/v1/users/current/summaries?start=today&end=today&api_key=API_KEY",
-              "cache_timeout": 20,
-              "http_timeout": 5000
-          }
-        },
-        {
           "background": "#f36943",
           "background_templates": [
             "{{if eq \"Charging\" .State.String}}#b8e994{{end}}",
